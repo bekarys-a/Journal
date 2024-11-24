@@ -16,7 +16,7 @@ app.Configure(config =>
 
     config.AddCommand<ViewCommand>("view")
         .WithAlias("v")
-        .WithDescription("прсмотр");
+        .WithDescription("просмотр");
 
     config.AddCommand<AddCommand>("add")
         .WithAlias("a")

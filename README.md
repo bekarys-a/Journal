@@ -9,7 +9,7 @@ OPTIONS:
     -v, --version    Prints version information
 
 COMMANDS:
-    view <PATH>             прсмотр
-    add <PATH> <DATE>       добавить дату в файл
-    delete <PATH> <DATE>    удалить дату из файла
+    view <PATH>             РїСЂРѕСЃРјРѕС‚СЂ
+    add <PATH> <DATE>       РґРѕР±Р°РІРёС‚СЊ РґР°С‚Сѓ РІ С„Р°Р№Р»
+    delete <PATH> <DATE>    СѓРґР°Р»РёС‚СЊ РґР°С‚Сѓ РёР· С„Р°Р№Р»Р°
 ```
