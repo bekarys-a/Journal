@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Journal": {
+      "commandName": "Project",
+      "commandLineArgs": "view"
+    }
+  }
+}
