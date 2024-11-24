@@ -1,5 +1,6 @@
 ﻿using Journal.Commands;
 using Spectre.Console.Cli;
+using System.Reflection;
 
 
 
@@ -7,6 +8,12 @@ var app = new CommandApp();
 
 app.Configure(config =>
 {
+    config.SetApplicationName("journal");
+    var version = Assembly.GetEntryAssembly().GetName().Version!;
+    config.SetApplicationVersion(
+        string.Join('.', new int[] { version.Major, version.Minor, (int)version.Build })
+    );
+
     config.AddCommand<ViewCommand>("view")
         .WithAlias("v")
         .WithDescription("прсмотр");
