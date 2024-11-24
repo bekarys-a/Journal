@@ -45,9 +45,9 @@ public class DateService
         _dateFile.Sort(sortDirection);
     }
 
-    public void Append(DateOnly dateOnly)
+    public void Add(DateOnly dateOnly)
     {
-        _dateFile.Append(dateOnly);
+        _dateFile.Add(dateOnly);
     }
 
     public bool Remove(DateOnly dateOnly)

@@ -16,7 +16,7 @@ public class AddCommand : Command<AddSettings>
         else
             date = DateOnly.FromDateTime(DateTime.Parse(settings.Date));
 
-        dateService.Append(date);
+        dateService.Add(date);
 
         AnsiConsole.WriteLine($"added: {date}");
 

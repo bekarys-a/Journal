@@ -32,7 +32,6 @@ public class DateFile
             .Select(line => DateOnly.FromDateTime(DateTime.Parse(line)));
     }
 
-
     public void Sort(SortDirection sortDirection)
     {
         var dates = GetDates();
@@ -47,7 +46,7 @@ public class DateFile
         Save(dates);
     }
 
-    public void Append(DateOnly dateOnly)
+    public void Add(DateOnly dateOnly)
     {
         var dates = GetDates().Append(dateOnly);
         Save(dates);
