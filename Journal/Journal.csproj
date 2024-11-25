@@ -6,8 +6,8 @@
 		<PublishSingleFile>true</PublishSingleFile>
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>disable</Nullable>
-		<AssemblyVersion>0.0.2</AssemblyVersion>
+		<Nullable>enable</Nullable>
+		<AssemblyVersion>0.0.3</AssemblyVersion>
 		<AssemblyName>journal_$(AssemblyVersion)</AssemblyName>
 	</PropertyGroup>
 

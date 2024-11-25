@@ -65,7 +65,7 @@ public class DateFile
         var dates = GetDates().ToList();
         var newDates = GetDates().Where(i => i != dateOnly).ToList();
         Save(newDates);
-        return dates.Count() - newDates.Count();
+        return dates.Count - newDates.Count;
     }
 
     private void Save(IEnumerable<DateOnly> dates)
