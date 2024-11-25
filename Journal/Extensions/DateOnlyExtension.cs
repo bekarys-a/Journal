@@ -1,7 +1,9 @@
 ﻿namespace Journal.Extensions;
-public static class DateOnlyExtension
+
+
+internal static class DateOnlyExtension
 {
-    public static DateTime ToDateTime(this DateOnly date)
+    internal static DateTime ToDateTime(this DateOnly date)
     {
         return date.ToDateTime(new TimeOnly());
     }
