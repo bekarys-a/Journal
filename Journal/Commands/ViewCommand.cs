@@ -49,7 +49,7 @@ public class ViewCommand : Command<ViewSettings>
             .GroupBy(d => d.Month)
             .OrderBy(d => d.Key)
             .Select((value, index) => new { value, index })
-            .GroupBy(x => x.index / 3)
+            .GroupBy(x => x.index / settings.Column)
             .Select(g => g.Select(x => x.value).ToArray())
             .ToArray();
 

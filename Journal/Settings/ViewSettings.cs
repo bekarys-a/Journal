@@ -12,7 +12,7 @@ public class ViewSettings : FilePathSettings
 
     [CommandOption("-c|--column")]
     [Description("Количество колонк месяца")]
-    [DefaultValue(0)]
+    [DefaultValue(1)]
     public int Column { get; set; }
 
     [CommandOption("-y|--current-year")]
