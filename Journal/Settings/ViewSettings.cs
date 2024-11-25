@@ -10,6 +10,11 @@ public class ViewSettings : FilePathSettings
     [Description("Количество последних строк")]
     public int? Last { get; set; }
 
+    [CommandOption("-c|--column")]
+    [Description("Количество колонк месяца")]
+    [DefaultValue(0)]
+    public int Column { get; set; }
+
     [CommandOption("-y|--current-year")]
     [Description("показать за текущий год")]
     public bool CurrentYear { get; set; }

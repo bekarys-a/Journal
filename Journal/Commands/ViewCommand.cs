@@ -34,27 +34,55 @@ public class ViewCommand : Command<ViewSettings>
         else if (settings.CurrentMonth)
             dateQuery = dateQuery.Where(d => d.Month == DateTime.Today.Month && d.Year == DateTime.Today.Year);;
 
-        var months = dateQuery.GroupBy(d => d.Month).OrderBy(d => d.Key);
+        DrawCalendars(context, settings, dateQuery);
 
         var date = dateQuery.ToArray();
-
-        foreach (var month in months)
-        {
-            var days = month.ToArray();
-            var calendar = new Calendar(days[0].ToDateTime());
-
-            calendar.MinimalBorder();
-
-            foreach (var day in days)
-                calendar.AddCalendarEvent(day.ToDateTime());
-
-            AnsiConsole.Write(calendar);
-
-            foreach (var day in days)
-                AnsiConsole.WriteLine(day.ToString());
-        }
+        foreach (var day in date)
+            AnsiConsole.WriteLine(day.ToString());
 
         AnsiConsole.WriteLine($"количество дат: {date.Length}");
+    }
+
+    public void DrawCalendars(CommandContext context, ViewSettings settings, IEnumerable<DateOnly> dateQuery)
+    {
+        var monthGroup = dateQuery
+            .GroupBy(d => d.Month)
+            .OrderBy(d => d.Key)
+            .Select((value, index) => new { value, index })
+            .GroupBy(x => x.index / 3)
+            .Select(g => g.Select(x => x.value).ToArray())
+            .ToArray();
+
+        var table = new Table();
+        table.HideHeaders();
+
+        foreach (var i in Enumerable.Range(0, settings.Column))
+        {
+            table.AddColumn("");
+            table.Columns[i].Padding(0, 0);
+        }
+
+        foreach (var months in monthGroup)
+        {
+            var row = new List<IRenderable>();
+
+            foreach (var month in months)
+            {
+                var days = month.ToArray();
+                var calendar = new Calendar(days[0].ToDateTime());
+
+                calendar.MinimalBorder();
+
+                foreach (var day in days)
+                    calendar.AddCalendarEvent(day.ToDateTime());
+
+                row.Add(calendar);
+            }
+
+            table.AddRow(row);
+        }
+
+        AnsiConsole.Write(table);
     }
 
     public void Week(CommandContext context, ViewSettings settings)
